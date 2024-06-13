@@ -8,11 +8,12 @@ from util import dreamMachineMake, refreshDreamMachine
 async def main():
     # Your access_token
     access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiNzE2YjJhMzItMDUwZS00ZmJmLWEyMjctMzIyMzgyZTUyNjM2IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODg2MTgwNn0.K2MG5LYabZYL5cyAsYDV1JqCMeWHqgyBdBTu9FHWBPI; refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiNzE2YjJhMzItMDUwZS00ZmJmLWEyMjctMzIyMzgyZTUyNjM2IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODg2MTgwNn0.K2MG5LYabZYL5cyAsYDV1JqCMeWHqgyBdBTu9FHWBPI"
-    prompt = "Little pigs are running on the grass"
+    prompt = "I dreamed about my mother"
     make_json = dreamMachineMake(prompt, access_token)
     print(make_json)
     task_id = make_json[0]["id"]
-    async with aiohttp.ClientSession() as session:
+    timeout = aiohttp.ClientTimeout(total=60)
+    async with aiohttp.ClientSession(timeout=timeout) as session:
 
         while True:
             response_json = await refreshDreamMachine(session, access_token)
