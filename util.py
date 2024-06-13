@@ -1,7 +1,6 @@
 import json
 
 import requests
-from requests_toolbelt.multipart.encoder import MultipartEncoder
 
 
 def dreamMachineMake(prompt, access_token, img_file=None):
