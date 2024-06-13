@@ -7,22 +7,22 @@ from util import dreamMachineMake, refreshDreamMachine
 
 async def main():
     # Your access_token
-    access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiYWE2MzVkY2EtMWU0NC00YjFiLTk1YTItOWEyYjA1ZWY3NTAxIiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODg1Mjk4MX0.QdmkCSJ0NTvU-l2_vfhuNAAiYJpNPfurXcC6R36435A"
+    access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiNzE2YjJhMzItMDUwZS00ZmJmLWEyMjctMzIyMzgyZTUyNjM2IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODg2MTgwNn0.K2MG5LYabZYL5cyAsYDV1JqCMeWHqgyBdBTu9FHWBPI; refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiNzE2YjJhMzItMDUwZS00ZmJmLWEyMjctMzIyMzgyZTUyNjM2IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODg2MTgwNn0.K2MG5LYabZYL5cyAsYDV1JqCMeWHqgyBdBTu9FHWBPI"
     prompt = "Little pigs are running on the grass"
-    dreamMachineMake(prompt, access_token)
-
+    make_json = dreamMachineMake(prompt, access_token)
+    print(make_json)
     async with aiohttp.ClientSession() as session:
-        previous_ids = set()
+
         while True:
             response_json = await refreshDreamMachine(session, access_token)
-            item = response_json[0]
-            print("proceeding state " + item['state'])
-            if item['id'] not in previous_ids and item['state'] == 'completed':
-                previous_ids.add(item['id'])
-                if item['video']:
-                    print(f"New video link: {item['video']['url']}")
-                    break
-            await asyncio.sleep(3)
+
+            for it in response_json:
+                if it["id"] == make_json[0]["id"]:
+                    print("proceeding state " + it['state'])
+                    if it['video']:
+                        print(f"New video link: {it['video']['url']}")
+                        return
+                await asyncio.sleep(3)
 
 
 if __name__ == "__main__":

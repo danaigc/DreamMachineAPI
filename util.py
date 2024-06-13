@@ -19,7 +19,8 @@ def dreamMachineMake(prompt, access_token):
     }
 
     response = requests.post(url, json=payload, headers=headers)
-    print(response.text)
+    response_json = json.loads(response.text)
+    return response_json
 
 
 # 定义刷新获取结果的异步函数
