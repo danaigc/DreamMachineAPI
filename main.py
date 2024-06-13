@@ -7,9 +7,13 @@ from util import dreamMachineMake, refreshDreamMachine
 
 async def main():
     # Your access_token
-    access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiNzE2YjJhMzItMDUwZS00ZmJmLWEyMjctMzIyMzgyZTUyNjM2IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODg2MTgwNn0.K2MG5LYabZYL5cyAsYDV1JqCMeWHqgyBdBTu9FHWBPI; refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiNzE2YjJhMzItMDUwZS00ZmJmLWEyMjctMzIyMzgyZTUyNjM2IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODg2MTgwNn0.K2MG5LYabZYL5cyAsYDV1JqCMeWHqgyBdBTu9FHWBPI"
-    prompt = "Pandas are fighting dinosaurs in space"
-    make_json = dreamMachineMake(prompt, access_token)
+    access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiYjY1ZTdjMWYtYTExYi00ZjI4LWE0NjYtNTk5N2YxOTBjMWI2IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODg4OTQwMn0.Yx_0KXpPfIc7i33XSZ6B2HVuqbNY1dIbau6YkII_0as"
+    prompt = "They grew wings and flew"
+    # The image path can be empty
+    img_file = ""
+    # img_file = "img/meinv.png"
+
+    make_json = dreamMachineMake(prompt, access_token, img_file)
     print(make_json)
     task_id = make_json[0]["id"]
     timeout = aiohttp.ClientTimeout(total=60)
