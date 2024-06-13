@@ -11,7 +11,6 @@ async def main():
     prompt = "Little pigs are running on the grass"
     dreamMachineMake(prompt, access_token)
 
-
     async with aiohttp.ClientSession() as session:
         previous_ids = set()
         while True:
