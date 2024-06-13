@@ -11,13 +11,14 @@ async def main():
     prompt = "Little pigs are running on the grass"
     make_json = dreamMachineMake(prompt, access_token)
     print(make_json)
+    task_id = make_json[0]["id"]
     async with aiohttp.ClientSession() as session:
 
         while True:
             response_json = await refreshDreamMachine(session, access_token)
 
             for it in response_json:
-                if it["id"] == make_json[0]["id"]:
+                if it["id"] == task_id:
                     print("proceeding state " + it['state'])
                     if it['video']:
                         print(f"New video link: {it['video']['url']}")
