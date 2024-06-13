@@ -1,4 +1,4 @@
-# Dream Machine Video Generator
+# Dream Machine API
 
 A Python script to generate videos using the Dream Machine API and fetch the latest generated video link.
 
