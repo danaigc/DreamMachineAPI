@@ -16,13 +16,13 @@ async def main():
         while True:
             response_json = await refreshDreamMachine(session, access_token)
             item = response_json[0]
+            print("proceeding state " + item['state'])
             if item['id'] not in previous_ids and item['state'] == 'completed':
                 previous_ids.add(item['id'])
                 if item['video']:
                     print(f"New video link: {item['video']['url']}")
                     break
             await asyncio.sleep(3)
-
 
 
 if __name__ == "__main__":
