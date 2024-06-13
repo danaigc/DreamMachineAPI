@@ -22,7 +22,7 @@ A Python script to generate videos using the Dream Machine API and fetch the lat
     cd DreamMachineAPI
     pip install -r requirements.txt
     ```
-You need to replace the value of the access_token variable to make sure the project works   
+   You need to replace the value of the access_token variable to make sure the project works   
 
    login https://lumalabs.ai/dream-machine/
 
