@@ -19,7 +19,7 @@ async def main():
 
         for it in response_json:
             if it["id"] == task_id:
-                print("proceeding state " + it['state'])
+                print(f"proceeding state {it['state']}")
                 if it['video']:
                     print(f"New video link: {it['video']['url']}")
                     return
