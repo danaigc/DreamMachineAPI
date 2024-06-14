@@ -33,4 +33,5 @@ A Python script to generate videos using the Dream Machine API and fetch the lat
     python main.py
     ```
 3. Result
-![WechatIMG4186.jpg](https://s2.loli.net/2024/06/14/cBe9M3kLijZQaYH.jpg)
+
+   ![WechatIMG4186.jpg](https://s2.loli.net/2024/06/14/cBe9M3kLijZQaYH.jpg)
