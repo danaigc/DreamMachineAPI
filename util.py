@@ -2,6 +2,12 @@ import json
 
 import requests
 
+# proxies = {
+#     "http": "http://127.0.0.1:7890",
+#     "https": "http://127.0.0.1:7890"
+# }
+proxies = {}
+
 
 def dreamMachineMake(prompt, access_token, img_file=None):
     url = "https://internal-api.virginia.labs.lumalabs.ai/api/photon/v1/generations/"
@@ -30,22 +36,23 @@ def dreamMachineMake(prompt, access_token, img_file=None):
         "content-type": "application/json"
     }
 
-    response = requests.post(url, json=payload, headers=headers)
+    response = requests.post(url, json=payload, headers=headers, proxies=proxies)
+
     response_json = json.loads(response.text)
     return response_json
 
 
-async def refreshDreamMachine(session, access_token):
+def refreshDreamMachine(access_token):
     url = "https://internal-api.virginia.labs.lumalabs.ai/api/photon/v1/user/generations/"
     querystring = {"offset": "0", "limit": "10"}
     headers = {
         "Cookie": "access_token=" + access_token,
     }
 
-    async with session.get(url, headers=headers, params=querystring) as response:
-        response_text = await response.text()
-        response_json = json.loads(response_text)
-        return response_json
+    response = requests.get(url, headers=headers, params=querystring, proxies=proxies)
+    response_text = response.text
+    response_json = json.loads(response_text)
+    return response_json
 
 
 def get_signed_upload(access_token):
@@ -57,7 +64,7 @@ def get_signed_upload(access_token):
     headers = {
         "Cookie": "access_token=" + access_token,
     }
-    response = requests.post(url, params=params, headers=headers)
+    response = requests.post(url, params=params, headers=headers, proxies=proxies)
     response.raise_for_status()
     return response.json()
 
@@ -72,7 +79,7 @@ def upload_file(access_token, file_path):
 
             response = requests.put(presigned_url, data=file,
                                     headers={'Content-Type': "image/png", "Referer": "https://lumalabs.ai/",
-                                             "origin": "https://lumalabs.ai"})
+                                             "origin": "https://lumalabs.ai"}, proxies=proxies)
 
         if response.status_code == 200:
             print("Upload successful:", public_url)
@@ -96,12 +103,10 @@ def uploadImage(access_token, file_path):
             "User-Agent": "Apipost/8 (https://www.apipost.cn)"
         }
 
-        response = requests.post(url, headers=headers, files=files)
+        response = requests.post(url, headers=headers, files=files, proxies=proxies)
 
     print(response.text)
 
     img_url = json.loads(response.text)["public_url"]
     print(img_url)
     return img_url
-
-
