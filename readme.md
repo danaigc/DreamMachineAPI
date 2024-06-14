@@ -35,3 +35,7 @@ A Python script to generate videos using the Dream Machine API and fetch the lat
 3. Result
 
    ![WechatIMG4186.jpg](https://s2.loli.net/2024/06/14/cBe9M3kLijZQaYH.jpg)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=danaigc/DreamMachineAPI&type=Date)](https://star-history.com/#danaigc/DreamMachineAPI&Date)
