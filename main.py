@@ -8,8 +8,8 @@ async def main():
     access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiYmVhOTlkMDAtNDc2NS00NDFjLWI0ZjktYjdkMGU1NjIxOTk1IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODk3MjEwMH0.vZt6jyHErsa8yuSWRVeYpvlh5xDOZnocI9z36n5QgSA"
     prompt = "I flew to the roof"
     # The image path can be empty
-    # img_file = ""
-    img_file = "img/meinv.png"
+    img_file = ""
+    # img_file = "img/meinv.png"
 
     make_json = dreamMachineMake(prompt, access_token, img_file)
     print(make_json)
