@@ -1,3 +1,2 @@
-aiosignal
 requests
 urllib3<2.0
