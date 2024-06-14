@@ -5,11 +5,11 @@ from util import dreamMachineMake, refreshDreamMachine
 
 async def main():
     # Your access_token
-    access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiYjY1ZTdjMWYtYTExYi00ZjI4LWE0NjYtNTk5N2YxOTBjMWI2IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODg4OTQwMn0.Yx_0KXpPfIc7i33XSZ6B2HVuqbNY1dIbau6YkII_0as"
-    prompt = "They grew wings and flew"
+    access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiYmVhOTlkMDAtNDc2NS00NDFjLWI0ZjktYjdkMGU1NjIxOTk1IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODk3MjEwMH0.vZt6jyHErsa8yuSWRVeYpvlh5xDOZnocI9z36n5QgSA"
+    prompt = "I flew to the roof"
     # The image path can be empty
-    img_file = ""
-    # img_file = "img/meinv.png"
+    # img_file = ""
+    img_file = "img/meinv.png"
 
     make_json = dreamMachineMake(prompt, access_token, img_file)
     print(make_json)

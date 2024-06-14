@@ -78,7 +78,7 @@ def upload_file(access_token, file_path):
         with open(file_path, 'rb') as file:
 
             response = requests.put(presigned_url, data=file,
-                                    headers={'Content-Type': "image/png", "Referer": "https://lumalabs.ai/",
+                                    headers={'Content-Type': "image/*", "Referer": "https://lumalabs.ai/",
                                              "origin": "https://lumalabs.ai"}, proxies=proxies)
 
         if response.status_code == 200:
