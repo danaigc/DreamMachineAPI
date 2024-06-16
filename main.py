@@ -5,7 +5,7 @@ from util import dreamMachineMake, refreshDreamMachine
 
 async def main():
     # Your access_token
-    access_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOnsidXNlcl91dWlkIjoiYmVhOTlkMDAtNDc2NS00NDFjLWI0ZjktYjdkMGU1NjIxOTk1IiwiY2xpZW50X2lkIjoiIn0sImV4cCI6MTcxODk3MjEwMH0.vZt6jyHErsa8yuSWRVeYpvlh5xDOZnocI9z36n5QgSA"
+    access_token = ""
     prompt = "I flew to the roof"
     # The image path can be empty
     img_file = ""
