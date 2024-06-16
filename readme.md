@@ -2,6 +2,11 @@
 
 A Python script to generate videos using the Dream Machine API and fetch the latest generated video link.
 
+
+
+## Website
+Try it online https://dreammachineai.io/
+
 ## Features
 
 - Generate videos via Dream Machine API.
